@@ -1,0 +1,143 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": [
+      {
+        "id": "Tree",
+        "path": "Tree"
+      },
+      {
+        "id": "EKHelloSboot",
+        "path": "EKHelloSboot",
+        "children": [
+          {
+            "id": "kube_role",
+            "path": "EKHelloSboot/kube_role",
+            "children": [
+              {
+                "id": "Policy",
+                "path": "EKHelloSboot/kube_role/Policy",
+                "children": [
+                  {
+                    "id": "Resource",
+                    "path": "EKHelloSboot/kube_role/Policy/Resource"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "helloworld1-cluster",
+            "path": "EKHelloSboot/helloworld1-cluster",
+            "children": [
+              {
+                "id": "Resource",
+                "path": "EKHelloSboot/helloworld1-cluster/Resource"
+              }
+            ]
+          },
+          {
+            "id": "s3_source",
+            "path": "EKHelloSboot/s3_source"
+          },
+          {
+            "id": "helloworld1",
+            "path": "EKHelloSboot/helloworld1",
+            "children": [
+              {
+                "id": "Role",
+                "path": "EKHelloSboot/helloworld1/Role",
+                "children": [
+                  {
+                    "id": "Resource",
+                    "path": "EKHelloSboot/helloworld1/Role/Resource"
+                  },
+                  {
+                    "id": "DefaultPolicy",
+                    "path": "EKHelloSboot/helloworld1/Role/DefaultPolicy",
+                    "children": [
+                      {
+                        "id": "Resource",
+                        "path": "EKHelloSboot/helloworld1/Role/DefaultPolicy/Resource"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "Resource",
+                "path": "EKHelloSboot/helloworld1/Resource"
+              },
+              {
+                "id": "Source",
+                "path": "EKHelloSboot/helloworld1/Source",
+                "children": [
+                  {
+                    "id": "s3Source",
+                    "path": "EKHelloSboot/helloworld1/Source/s3Source",
+                    "children": [
+                      {
+                        "id": "CodePipelineActionRole",
+                        "path": "EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole",
+                        "children": [
+                          {
+                            "id": "Resource",
+                            "path": "EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/Resource"
+                          },
+                          {
+                            "id": "DefaultPolicy",
+                            "path": "EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/DefaultPolicy",
+                            "children": [
+                              {
+                                "id": "Resource",
+                                "path": "EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/DefaultPolicy/Resource"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "helloworld1-EksInstall",
+                "path": "EKHelloSboot/helloworld1/helloworld1-EksInstall",
+                "children": [
+                  {
+                    "id": "installEKS",
+                    "path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS",
+                    "children": [
+                      {
+                        "id": "CodePipelineActionRole",
+                        "path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole",
+                        "children": [
+                          {
+                            "id": "Resource",
+                            "path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/Resource"
+                          },
+                          {
+                            "id": "DefaultPolicy",
+                            "path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/DefaultPolicy",
+                            "children": [
+                              {
+                                "id": "Resource",
+                                "path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/DefaultPolicy/Resource"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+version: '3.5'
+
+services:
+  flask:
+    build: ./backend
+    expose:
+      - 80
+    ports:
+      - 80:80
+    env_file:
+      - .env
+    environment:
+     - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+     - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+     - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+    volumes:
+      - ./backend/src:/src
+    networks:
+      - local_dev_network
+
+  frontend:
+    build: ./ui
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+    environment:
+     - EKSPHEMERAL_HOME=/eksp
+     - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+     - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+     - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+     - EKSBOOT_URL=http://flask:80
+     - EKSBOOT_BUCKET=${AWS_DEFAULT_REGION}
+     - EKSBOOT_BUCKET=aoisoifjsdiojefdsr
+     - SPHINX_DOCS_PORT=5500
+     - CACHEBUST=5
+    depends_on:
+      - flask
+    networks:
+      - local_dev_network
+
+networks:
+  local_dev_network: 

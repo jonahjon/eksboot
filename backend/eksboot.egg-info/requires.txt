@@ -1,0 +1,5 @@
+boto3>=1.9.166
+flask>=0.11.1
+flask_restplus
+pytest>=5.1.2
+pytest-flask

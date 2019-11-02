@@ -1,0 +1,11 @@
+Metadata-Version: 1.1
+Name: eksboot
+Version: 0.0.0
+Summary: EKS Control Plane
+Home-page: UNKNOWN
+Author: Jonah Jones
+Author-email: jonahjo@amazon.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7

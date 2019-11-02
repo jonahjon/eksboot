@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - apt-get install jq openssl
+      - curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+      - mv -v /tmp/eksctl /usr/local/bin
+      - eksctl version
+      - echo "hi" > "$bucket_name.json"
+      - aws eks update-kubeconfig --name "$name"
+      - eksctl delete cluster --name "$name"
+
+artifacts:
+  files:
+    - $bucket_name.json

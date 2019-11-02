@@ -1,0 +1,15 @@
+# Binaries for programs and plugins
+*.pyc
+.env
+cluster-vpc.yaml
+*.pytest-cache
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+.DS_Store
+/testing-python
+/ui/proxy
+/shell
+/docs
+/ui/js/app.js.tmp
+/backend/*.env
+/backend/*.cdk.out

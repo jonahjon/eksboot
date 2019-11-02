@@ -1,0 +1,42 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - curl --silent --location -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.13.7/bin/linux/amd64/kubectl
+      - chmod +x /usr/local/bin/kubectl
+      - apt-get install jq openssl
+      - curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+      - mv -v /tmp/eksctl /usr/local/bin
+      - eksctl version
+      - echo "hi" > "$bucket_name.json"
+      - aws s3 cp s3://jonah-sam-bucket/helm_rbac.yaml helm_rbac.yaml
+      {%- if toghelm -%}
+      - curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
+      - chmod +x get_helm.sh
+      - ./get_helm.sh
+      - kubectl apply -f helm_rbac.yaml
+      - pwd=$(pwd)
+      - export HELM_HOME=$pwd
+      - helm init --service-account tiller
+    {%- endif -%}
+    {%- if toghpa -%}
+      - helm install stable/metrics-server --name metrics-server --version 2.0.4 --namespace metrics
+      - kubectl get apiservice v1beta1.metrics.k8s.io -o yaml
+      - kubectl get hpa
+    {%- endif -%}
+    {%- if togca -%}
+      - export ASG_NAME=$(aws autoscaling describe-auto-scaling-groups --query 'AutoScalingGroups[].[AutoScalingGroupName]' --output text | grep eksctl-eksboot)
+      - export AWS_DEFAULT_REGION=$(aws configure get region)
+      - envsubst <cluster_autoscaler.yml.template >cluster_autoscaler.yml
+      - kubectl apply -f cluster_autoscaler.yml --tail 10
+    {%- endif -%}
+    {%- if togprom -%}
+      - helm install -n aws-appmesh --namespace appmesh-system https://github.com/PaulMaddox/aws-appmesh-helm/releases/latest/download/aws-appmesh.tgz
+      - kubectl get pods -n appmesh-system
+      - kubectl label namespace appmesh-system appmesh.k8s.aws/sidecarInjectorWebhook=enabled
+    {% endif %}
+
+artifacts:
+  files:
+    - $bucket_name.json

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="EKSphemeral">
+    <meta name="author" content="Michael Hausenblas">
+    <meta name="keyword" content="Kubernetes,AWS,EKS">
+    <link rel="shortcut icon" href=".//img/favicon.ico">
+    <title>EKSphemeral</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="top">
+        <div>
+            See also the <a target="_blank" rel="noopener"
+                href="https://github.com/jonahjones777/eksboot/">Github</a> for more details.
+        </div>
+        <div id="menu">
+            <button class="actionbtn" id="create">Create!</button>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <h1>
+            <span style="color:#ff9900;">EKS</span>boot
+        </h1>
+    </div>
+    <div id="status"></div>
+    <div id="clusters">
+        <h2>Clusters</h2>
+        <div id="clusterdetails"></div>
+    </div>
+    <div id="createdialog">
+        <h3>Create Amazon EKS cluster</h3>
+        <div>
+            <fieldset>
+                <label for="name"><strong>Name</strong> of the cluster:</label>
+                <input type="text" id="icname" name="icname" size="30" required>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <label for="name"><strong>Number of worker nodes</strong>:</label>
+                <input type="number" id="icworkernum" name="icworkernum" min="1" value="1" style="width: 3em;">
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <label for="iamrole"><strong>Iam role ARN for Kubeconfig</strong>:</label>
+                <input type="text" id="iciamrole" name="iciamrole" size="50" required>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <label for="vpc"><strong>Existing VPC to launch EKS cluster into</strong>:</label>
+                <input type="text" id="icvpc" name="icvpc" size="30" required>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <p>
+                    <label for="kversion"><strong>Kubernetes version</strong> (default is the most recent one):</label>
+                    <select id="ickversion">
+                        <option value="1.11">1.11</option>
+                        <option value="1.12">1.12</option>
+                        <option value="1.13">1.13</option>
+                        <option value="1.14" selected="selected">1.14</option>
+                    </select>
+                </p>
+            </fieldset>
+        </div>
+        <div>
+                <fieldset id="toggle" class="toggle">
+                    <legend><strong>Install Helm on Cluster?</strong></legend>
+                    <label class="switch">
+                            <input type="checkbox" id="toghelm" name="helm" value="off">
+                            <div class="slider round"></div>
+                    </label>
+                </fieldset>
+        </div>
+        <div>
+                <fieldset id="toggle" class="toggle">
+                    <legend><strong>Install AppMesh on Cluster?</strong></legend>
+                    <label class="switch">
+                            <input type="checkbox" id="togappmesh" name="helmdep" value="off">
+                            <div class="slider round"></div>
+                    </label>
+                </fieldset>
+        </div>
+        <div>
+                <fieldset id="toggle" class="toggle">
+                    <legend><strong>Install Prometheus on Cluster?</strong></legend>
+                    <label class="switch">
+                            <input type="checkbox" id="togprom" name="helmdep" value="off">
+                            <div class="slider round"></div>
+                    </label>
+                </fieldset>
+        </div>
+        <div>
+                <fieldset id="toggle" class="toggle">
+                    <legend><strong>Install Grafana on Cluster?</strong></legend>
+                    <label class="switch">
+                            <input type="checkbox" id="toggrafana" name="helmdep" value="off">
+                            <div class="slider round"></div>
+                    </label>
+                </fieldset>
+        </div>
+        <div>
+                <fieldset id="toggle" class="toggle">
+                    <legend><strong>Install Xray on Cluster?</strong></legend>
+                    <label class="switch">
+                            <input type="checkbox" id="togxray" name="helmdep" value="off">
+                            <div class="slider round"></div>
+                    </label>
+                </fieldset>
+        </div>
+        <div>
+                <fieldset id="toggle" class="toggle">
+                    <legend><strong>Install Alb Ingress on Cluster?</strong></legend>
+                    <label class="switch">
+                            <input type="checkbox" id="togalb" name="helmdep" value="off">
+                            <div class="slider round"></div>
+                    </label>
+                </fieldset>
+        </div>
+        <div>
+                <fieldset id="toggle" class="toggle">
+                    <legend><strong>Install Cluster Autoscaling on Cluster?</strong></legend>
+                    <label class="switch">
+                            <input type="checkbox" id="togca" name="toggle" value="off">
+                            <div class="slider round"></div>
+                    </label>
+                </fieldset>
+        </div>
+        <div>
+                <fieldset id="toggle" class="toggle">
+                    <legend><strong>Install HPA on Cluster?</strong></legend>
+                    <label class="switch">
+                            <input type="checkbox" id="toghpa" name="toggle" value="off">
+                            <div class="slider round"></div>
+                    </label>
+                </fieldset>
+        </div>
+        <div class="cmddialog">
+            <button class="actionbtnsecondary" id="cancelcc">Cancel</button>
+            <button class="actionbtn" id="submitcc">Go!</button>
+        </div>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script src="./app.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("input[type='checkbox']").change(function (event) {
+                if($("input[type='checkbox'][name='helmdep']").is(':checked'))
+                    {                        
+                        if($("input[type='checkbox'][name='helm']").is(':checked'))
+                            {
+                                //pass
+                            } else {
+                                $("input[type='checkbox'][name='helm'][id='toghelm']").prop('checked', true);
+                                alert("Helm required to install selected addon");
+                            }
+                    }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        window.onload = setupRefresh;
+  
+        function setupRefresh() {
+            setInterval("refreshFrame();", 1000);
+        }
+        function refreshFrame() {
+           parent.right_frame.location.reload();
+        }
+    </script>
+</body>
+</html>

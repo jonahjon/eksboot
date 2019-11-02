@@ -1,0 +1,437 @@
+{
+  "Resources": {
+    "kuberolePolicy31DAFD50": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:*",
+              "Effect": "Allow",
+              "Resource": "arn:aws:s3:::*/*"
+            },
+            {
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":logs:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":log-group:/aws/codebuild/",
+                      {
+                        "Ref": "helloworld1cluster5F5BBFF1"
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":logs:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":log-group:/aws/codebuild/",
+                      {
+                        "Ref": "helloworld1cluster5F5BBFF1"
+                      },
+                      ":*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+                "s3:DeleteObject*",
+                "s3:PutObject*",
+                "s3:Abort*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "arn:aws:s3:::aoisoifjsdiojefdsr",
+                "arn:aws:s3:::aoisoifjsdiojefdsr/*"
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "kuberolePolicy31DAFD50",
+        "Roles": [
+          "kube_test"
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "EKHelloSboot/kube_role/Policy/Resource"
+      }
+    },
+    "helloworld1cluster5F5BBFF1": {
+      "Type": "AWS::CodeBuild::Project",
+      "Properties": {
+        "Artifacts": {
+          "Type": "CODEPIPELINE"
+        },
+        "Environment": {
+          "ComputeType": "BUILD_GENERAL1_SMALL",
+          "EnvironmentVariables": [
+            {
+              "Name": "bucket_name",
+              "Type": "PLAINTEXT",
+              "Value": "aoisoifjsdiojefdsr"
+            }
+          ],
+          "Image": "aws/codebuild/standard:1.0",
+          "PrivilegedMode": false,
+          "Type": "LINUX_CONTAINER"
+        },
+        "ServiceRole": "arn:aws:iam::164382793440:role/kube_test",
+        "Source": {
+          "Type": "CODEPIPELINE"
+        },
+        "Name": "stack_name"
+      },
+      "Metadata": {
+        "aws:cdk:path": "EKHelloSboot/helloworld1-cluster/Resource"
+      }
+    },
+    "helloworld1Role7191663A": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "codepipeline.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "EKHelloSboot/helloworld1/Role/Resource"
+      }
+    },
+    "helloworld1RoleDefaultPolicyC74082F1": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+                "s3:DeleteObject*",
+                "s3:PutObject*",
+                "s3:Abort*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "arn:aws:s3:::aoisoifjsdiojefdsr",
+                "arn:aws:s3:::aoisoifjsdiojefdsr/*"
+              ]
+            },
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "helloworld1Sources3SourceCodePipelineActionRole46F9DDDC",
+                  "Arn"
+                ]
+              }
+            },
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRole275CAB87",
+                  "Arn"
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "helloworld1RoleDefaultPolicyC74082F1",
+        "Roles": [
+          {
+            "Ref": "helloworld1Role7191663A"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "EKHelloSboot/helloworld1/Role/DefaultPolicy/Resource"
+      }
+    },
+    "helloworld122D99DCB": {
+      "Type": "AWS::CodePipeline::Pipeline",
+      "Properties": {
+        "RoleArn": {
+          "Fn::GetAtt": [
+            "helloworld1Role7191663A",
+            "Arn"
+          ]
+        },
+        "Stages": [
+          {
+            "Actions": [
+              {
+                "ActionTypeId": {
+                  "Category": "Source",
+                  "Owner": "AWS",
+                  "Provider": "S3",
+                  "Version": "1"
+                },
+                "Configuration": {
+                  "S3Bucket": "aoisoifjsdiojefdsr",
+                  "S3ObjectKey": "buildspec.yml.zip"
+                },
+                "Name": "s3Source",
+                "OutputArtifacts": [
+                  {
+                    "Name": "art"
+                  }
+                ],
+                "RoleArn": {
+                  "Fn::GetAtt": [
+                    "helloworld1Sources3SourceCodePipelineActionRole46F9DDDC",
+                    "Arn"
+                  ]
+                },
+                "RunOrder": 1
+              }
+            ],
+            "Name": "Source"
+          },
+          {
+            "Actions": [
+              {
+                "ActionTypeId": {
+                  "Category": "Build",
+                  "Owner": "AWS",
+                  "Provider": "CodeBuild",
+                  "Version": "1"
+                },
+                "Configuration": {
+                  "ProjectName": {
+                    "Ref": "helloworld1cluster5F5BBFF1"
+                  }
+                },
+                "InputArtifacts": [
+                  {
+                    "Name": "art"
+                  }
+                ],
+                "Name": "installEKS",
+                "OutputArtifacts": [
+                  {
+                    "Name": "codebuild"
+                  }
+                ],
+                "RoleArn": {
+                  "Fn::GetAtt": [
+                    "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRole275CAB87",
+                    "Arn"
+                  ]
+                },
+                "RunOrder": 1
+              }
+            ],
+            "Name": "helloworld1-EksInstall"
+          }
+        ],
+        "ArtifactStore": {
+          "Location": "aoisoifjsdiojefdsr",
+          "Type": "S3"
+        }
+      },
+      "DependsOn": [
+        "helloworld1RoleDefaultPolicyC74082F1",
+        "helloworld1Role7191663A"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "EKHelloSboot/helloworld1/Resource"
+      }
+    },
+    "helloworld1Sources3SourceCodePipelineActionRole46F9DDDC": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":root"
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/Resource"
+      }
+    },
+    "helloworld1Sources3SourceCodePipelineActionRoleDefaultPolicyA673C303": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "arn:aws:s3:::aoisoifjsdiojefdsr",
+                "arn:aws:s3:::aoisoifjsdiojefdsr/*"
+              ]
+            },
+            {
+              "Action": [
+                "s3:DeleteObject*",
+                "s3:PutObject*",
+                "s3:Abort*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "arn:aws:s3:::aoisoifjsdiojefdsr",
+                "arn:aws:s3:::aoisoifjsdiojefdsr/*"
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "helloworld1Sources3SourceCodePipelineActionRoleDefaultPolicyA673C303",
+        "Roles": [
+          {
+            "Ref": "helloworld1Sources3SourceCodePipelineActionRole46F9DDDC"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/DefaultPolicy/Resource"
+      }
+    },
+    "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRole275CAB87": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":root"
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/Resource"
+      }
+    },
+    "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRoleDefaultPolicyCF03927F": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "codebuild:BatchGetBuilds",
+                "codebuild:StartBuild",
+                "codebuild:StopBuild"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "helloworld1cluster5F5BBFF1",
+                  "Arn"
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRoleDefaultPolicyCF03927F",
+        "Roles": [
+          {
+            "Ref": "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRole275CAB87"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/DefaultPolicy/Resource"
+      }
+    }
+  }
+}

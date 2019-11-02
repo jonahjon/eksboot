@@ -1,0 +1,224 @@
+{
+  "version": "1.10.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "EKHelloSboot": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "EKHelloSboot.template.json"
+      },
+      "metadata": {
+        "/EKHelloSboot/kube_role/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kuberolePolicy31DAFD50",
+            "trace": [
+              "new Policy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
+              "MutableImport.addToPolicy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/role.js:115:42)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:51",
+              "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:25",
+              "Kernel._ensureSync (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7320:20)",
+              "Kernel.invoke (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6724:26)",
+              "KernelHost.processRequest (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6421:28)",
+              "KernelHost.run (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6364:14)",
+              "Immediate._onImmediate (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6367:37)",
+              "processImmediate (internal/timers.js:439:21)"
+            ]
+          }
+        ],
+        "/EKHelloSboot/helloworld1-cluster/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "helloworld1cluster5F5BBFF1",
+            "trace": [
+              "new Project (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codebuild/lib/project.js:257:26)",
+              "new PipelineProject (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:11:9)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:49",
+              "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
+              "Kernel._create (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:26)",
+              "Kernel.create (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6646:21)",
+              "KernelHost.processRequest (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6421:28)",
+              "KernelHost.run (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6364:14)",
+              "Immediate._onImmediate (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6367:37)",
+              "processImmediate (internal/timers.js:439:21)"
+            ]
+          }
+        ],
+        "/EKHelloSboot/helloworld1/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "helloworld1Role7191663A",
+            "trace": [
+              "new Role (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
+              "new Pipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:95:35)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:49",
+              "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
+              "Kernel._create (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:26)",
+              "Kernel.create (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6646:21)",
+              "KernelHost.processRequest (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6421:28)",
+              "KernelHost.run (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6364:14)",
+              "Immediate._onImmediate (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6367:37)",
+              "processImmediate (internal/timers.js:439:21)"
+            ]
+          }
+        ],
+        "/EKHelloSboot/helloworld1/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "helloworld1RoleDefaultPolicyC74082F1",
+            "trace": [
+              "new Policy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
+              "Role.addToPolicy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/role.js:153:34)",
+              "Function.addToPrincipal (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/grant.js:54:65)",
+              "Function.addToPrincipalOrResource (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/grant.js:31:30)",
+              "Import.grant (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-s3/lib/bucket.js:239:29)",
+              "Import.grantReadWrite (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-s3/lib/bucket.js:188:21)",
+              "new Pipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:108:29)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:49",
+              "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
+              "Kernel._create (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:26)",
+              "Kernel.create (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6646:21)",
+              "KernelHost.processRequest (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6421:28)",
+              "KernelHost.run (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6364:14)",
+              "Immediate._onImmediate (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6367:37)",
+              "processImmediate (internal/timers.js:439:21)"
+            ]
+          }
+        ],
+        "/EKHelloSboot/helloworld1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "helloworld122D99DCB",
+            "trace": [
+              "new Pipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:98:30)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:49",
+              "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
+              "Kernel._create (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:26)",
+              "Kernel.create (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6646:21)",
+              "KernelHost.processRequest (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6421:28)",
+              "KernelHost.run (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6364:14)",
+              "Immediate._onImmediate (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6367:37)",
+              "processImmediate (internal/timers.js:439:21)"
+            ]
+          }
+        ],
+        "/EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "helloworld1Sources3SourceCodePipelineActionRole46F9DDDC",
+            "trace": [
+              "new Role (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
+              "Pipeline.getRoleForAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:328:26)",
+              "Pipeline._attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:192:33)",
+              "Stage.attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:105:31)",
+              "Stage.addAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:64:33)",
+              "new Stage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:25:18)",
+              "Pipeline.addStage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:155:23)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:51",
+              "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:25",
+              "Kernel._ensureSync (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7320:20)",
+              "Kernel.invoke (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6724:26)",
+              "KernelHost.processRequest (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6421:28)",
+              "KernelHost.run (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6364:14)",
+              "Immediate._onImmediate (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6367:37)",
+              "processImmediate (internal/timers.js:439:21)"
+            ]
+          }
+        ],
+        "/EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "helloworld1Sources3SourceCodePipelineActionRoleDefaultPolicyA673C303",
+            "trace": [
+              "new Policy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
+              "Role.addToPolicy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/role.js:153:34)",
+              "Function.addToPrincipal (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/grant.js:54:65)",
+              "Function.addToPrincipalOrResource (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/grant.js:31:30)",
+              "Import.grant (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-s3/lib/bucket.js:239:29)",
+              "Import.grantRead (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-s3/lib/bucket.js:140:21)",
+              "S3SourceAction.bound (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline-actions/lib/s3/source-action.js:49:27)",
+              "S3SourceAction.bind (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline-actions/lib/action.js:23:21)",
+              "Pipeline._attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:194:41)",
+              "Stage.attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:105:31)",
+              "Stage.addAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:64:33)",
+              "new Stage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:25:18)",
+              "Pipeline.addStage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:155:23)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:51",
+              "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:25",
+              "Kernel._ensureSync (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7320:20)",
+              "Kernel.invoke (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6724:26)",
+              "KernelHost.processRequest (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6421:28)",
+              "KernelHost.run (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6364:14)",
+              "Immediate._onImmediate (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6367:37)",
+              "processImmediate (internal/timers.js:439:21)"
+            ]
+          }
+        ],
+        "/EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRole275CAB87",
+            "trace": [
+              "new Role (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
+              "Pipeline.getRoleForAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:328:26)",
+              "Pipeline._attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:192:33)",
+              "Stage.attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:105:31)",
+              "Stage.addAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:64:33)",
+              "new Stage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:25:18)",
+              "Pipeline.addStage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:155:23)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:51",
+              "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:25",
+              "Kernel._ensureSync (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7320:20)",
+              "Kernel.invoke (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6724:26)",
+              "KernelHost.processRequest (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6421:28)",
+              "KernelHost.run (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6364:14)",
+              "Immediate._onImmediate (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6367:37)",
+              "processImmediate (internal/timers.js:439:21)"
+            ]
+          }
+        ],
+        "/EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRoleDefaultPolicyCF03927F",
+            "trace": [
+              "new Policy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
+              "Role.addToPolicy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-iam/lib/role.js:153:34)",
+              "CodeBuildAction.bound (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline-actions/lib/codebuild/build-action.js:46:22)",
+              "CodeBuildAction.bind (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline-actions/lib/action.js:23:21)",
+              "Pipeline._attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:194:41)",
+              "Stage.attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:105:31)",
+              "Stage.addAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:64:33)",
+              "new Stage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:25:18)",
+              "Pipeline.addStage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-UurHLm/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:155:23)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:51",
+              "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
+              "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:25",
+              "Kernel._ensureSync (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7320:20)",
+              "Kernel.invoke (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6724:26)",
+              "KernelHost.processRequest (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6421:28)",
+              "KernelHost.run (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6364:14)",
+              "Immediate._onImmediate (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6367:37)",
+              "processImmediate (internal/timers.js:439:21)"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "libraries": {
+      "jsii-runtime": "Python/3.7.4"
+    }
+  }
+}
