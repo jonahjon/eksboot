@@ -41,20 +41,18 @@
         </div>
         <div>
             <fieldset>
-                <label for="name"><strong>Number of worker nodes</strong>:</label>
+                <label for="name"><strong>Min Nodes</strong>:</label>
+                <input type="number" id="icworkermin" name="icworkernum" min="1" value="1" style="width: 3em;">
+                <label for="name"><strong>Desired Nodes</strong>:</label>
                 <input type="number" id="icworkernum" name="icworkernum" min="1" value="1" style="width: 3em;">
+                <label for="name"><strong>Max Nodes</strong>:</label>
+                <input type="number" id="icworkermax" name="icworkernum" value="3" style="width: 3em;">
             </fieldset>
         </div>
         <div>
             <fieldset>
                 <label for="iamrole"><strong>Iam role ARN for Kubeconfig</strong>:</label>
                 <input type="text" id="iciamrole" name="iciamrole" size="50" required>
-            </fieldset>
-        </div>
-        <div>
-            <fieldset>
-                <label for="vpc"><strong>Existing VPC to launch EKS cluster into</strong>:</label>
-                <input type="text" id="icvpc" name="icvpc" size="30" required>
             </fieldset>
         </div>
         <div>

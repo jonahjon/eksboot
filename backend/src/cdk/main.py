@@ -116,6 +116,11 @@ class CodepipelineStack(core.Stack):
             #         service='codebuild.amazonaws.com'
             #     )
             # )
+            # iam_role.grant(
+            #     iam.ServicePrincipal(
+            #         service='eks.amazonaws.com'
+            #     )
+            # )
             iam_role.add_to_policy(
                 statement=iam.PolicyStatement(
                     resources=["arn:aws:s3:::*/*"],
@@ -126,7 +131,7 @@ class CodepipelineStack(core.Stack):
                 self, 
                 f"{stack_name}-cluster",
                 role=iam_role,
-                project_name='stack_name',
+                project_name=f"eks-pipeline-{stack_name}",
                 environment_variables={
                     'bucket_name':codebuild.BuildEnvironmentVariable(value=s3_bucket),
                     'name':codebuild.BuildEnvironmentVariable(value=stack_name)

@@ -6,7 +6,7 @@ AWS_DEFAULT_REGION := $(shell aws configure get region)
 include ../.env
 export
 
-.PHONY: build run stop
+.PHONY: build container run
 
 build:
 	rm -rf proxy
