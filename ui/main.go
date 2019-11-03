@@ -19,8 +19,6 @@ type ClusterSpec struct {
 	S3Bucket string `json:"s3bucket"`
 	// Iamrole specifies the Iam role to specify in the kubeconfig
 	Iamrole string `json:"iamrole"`
-	// VPC specifies the vpc to launch the eks cluster into
-	Vpc string `json:"vpc"`
 	// NumWorkers specifies the number of worker nodes, defaults to 1
 	NumWorkers int `json:"numworkers"`
 	// KubeVersion  specifies the Kubernetes version to use, defaults to `1.12`

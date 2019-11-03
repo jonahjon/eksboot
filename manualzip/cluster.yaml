@@ -1,0 +1,20 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: tester
+  region: us-west-2
+
+nodeGroups:
+  - name: tester-ng
+    desiredCapacity: 1
+    iam:
+      withAddonPolicies:
+        cloudWatch: TrueautoScaler: true
+
+iam:
+  serviceRoleARN: arn:aws:iam::164382793440:role/service-role/kubectl-test
+
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["audit", "authenticator", "controllerManager"]

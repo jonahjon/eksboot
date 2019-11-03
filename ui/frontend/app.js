@@ -63,32 +63,20 @@ function createCluster() {
 
     var cname = $('#icname').val();
     var cworkernum = $('#icworkernum').val();
-    var cvpc = $('#icvpc').val();
     var ciamrole = $('#iciamrole').val();
     var cversion = $('#ickversion option:selected').text();
     var chelm = $('#ichelm option:selected').text();
-
     var toggrafana = $('#toggrafana').is(':checked');
-
     var togprom = $('#togprom').is(':checked');
-
     var togxray = $('#togxray').is(':checked');
-
     var togalb = $('#togalb').is(':checked');
-
     var togca = $('#togca').is(':checked');
-
     var toghpa = $('#toghpa').is(':checked');
-
     var toghelm=$('#toghelm').is(':checked');
-
     var togappmesh = $('#togappmesh').is(':checked');
-    
     var clusterspec = { 
       'name': cname,
       'numworkers': parseInt(cworkernum, 10),
-      's3bucket': cs3bucket,
-      'vpc': cvpc,
       'iamrole': ciamrole,
       'kubeversion': cversion, 
       'addons':{
@@ -241,24 +229,24 @@ function deletecluster(cID) {
   });
 }
 
-function vpc(cID) {
-  var ep = '/vpc';
-  $('#status').html('<img src="./img/standby.gif" alt="please wait" width="64px">');
-  $.ajax({
-    type: 'GET',
-    url: cpURL + ep,
-    dataType: 'json',
-    async: true,
-    error: function (d) {
-      console.info(d);
-      $('#status').html('<div>looking up details for vpcs in region ' + cID + ' failed</div>');
-    },
-    success: function (d) {
-      if (d != null) {
-        console.info(d);
+// function vpc(cID) {
+//   var ep = '/vpc';
+//   $('#status').html('<img src="./img/standby.gif" alt="please wait" width="64px">');
+//   $.ajax({
+//     type: 'GET',
+//     url: cpURL + ep,
+//     dataType: 'json',
+//     async: true,
+//     error: function (d) {
+//       console.info(d);
+//       $('#status').html('<div>looking up details for vpcs in region ' + cID + ' failed</div>');
+//     },
+//     success: function (d) {
+//       if (d != null) {
+//         console.info(d);
         
-        return vpc;
-      }
-    }
-  })
-}
+//         return vpc;
+//       }
+//     }
+//   })
+// }

@@ -126,7 +126,7 @@ class CodepipelineStack(core.Stack):
                 self, 
                 f"{stack_name}-cluster",
                 role=iam_role,
-                project_name='stack_name',
+                project_name=f"eks-pipeline-{stack_name}",
                 environment_variables={
                     'bucket_name':codebuild.BuildEnvironmentVariable(value=s3_bucket),
                     'name':codebuild.BuildEnvironmentVariable(value=stack_name)

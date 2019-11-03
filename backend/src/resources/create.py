@@ -84,12 +84,12 @@ class Create(Resource):
                 'zipfile':'buildspec.yml.zip',
                 'iamrole':args['iamrole']
             },
-            f"{chdir}/cdk/",
+            f"{chdir}/cdk",
             aws_logger
         )
         aws_logger.info('created the cdk.json file for the CDK params')
         s3.upload_dict(f"{args['name']}.json", args, args['s3bucket'])
-        #streaming_output(["cdk", "deploy", "--require-approval", "never"], f"{chdir}/cdk/", aws_logger)
+        streaming_output(["cdk", "deploy", "--require-approval", "never"], f"{chdir}/cdk/", aws_logger)
         try:
             return args
         except KeyError as e:

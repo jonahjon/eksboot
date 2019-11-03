@@ -74,6 +74,7 @@ def create_cdk_json(d, cdk_dir, logger):
                 'context':d
                 }, outfile, indent=2, separators=(',', ': '), cls=SetEncoder)
         logger.info("Creating cdk context file:")
+        logger.info(d)
         return
     except Exception as e:
         logger.info(e)
