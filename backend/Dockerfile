@@ -1,5 +1,4 @@
-FROM nikolaik/python-nodejs:python3.5-nodejs8-stretch
-RUN npm install -g aws-cdk
+FROM jonahjones777/cdk-image
 ADD requirements.txt /
 RUN pip3 install -r /requirements.txt
 WORKDIR /app
