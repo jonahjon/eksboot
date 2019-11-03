@@ -59,7 +59,7 @@ $(document).ready(function($){
 
 function createCluster() {
     console.info('Calling out to local proxy for cluster creation');
-    $('#status').html('<img src="./img/standby.gif" alt="please wait" width="64px">');
+    $('#status').html('<img src="./standby.gif" alt="please wait" width="64px">');
 
     var cname = $('#icname').val();
     var cworkernum = $('#icworkernum').val();
@@ -77,6 +77,8 @@ function createCluster() {
     var clusterspec = { 
       'name': cname,
       'numworkers': parseInt(cworkernum, 10),
+      'minworkers': parseInt(cworkermin, 10),
+      'maxworkers': parseInt(cworkermax, 10),
       'iamrole': ciamrole,
       'kubeversion': cversion, 
       'addons':{
@@ -140,7 +142,7 @@ function clusters(){
 
 function clusterdetail(cID) {
   var ep = '/status?cluster='+cID;
-  $('#status').html('<img src="./img/standby.gif" alt="please wait" width="64px">');
+  $('#status').html('<img src="./standby.gif" alt="please wait" width="64px">');
   $.ajax({
     type: 'GET',
     url: cpURL + ep,
@@ -174,7 +176,7 @@ function clusterdetail(cID) {
 
 function clusterconf(cID) {
   var ep = '/configof?cluster='+cID;
-  $('#status').html('<img src="./img/standby.gif" alt="please wait" width="64px">');
+  $('#status').html('<img src="./standby.gif" alt="please wait" width="64px">');
   $.ajax({
     type: 'POST',
     url: cpURL + ep,
@@ -208,7 +210,7 @@ function clusterconf(cID) {
 function deletecluster(cID) {
   var ep = '/delete?cluster='+cID;
   console.info('Deleting EKS Cluster defined here');
-  $('#status').html('<img src="./img/standby.gif" alt="please wait" width="64px">');
+  $('#status').html('<img src="./standby.gif" alt="please wait" width="64px">');
   $.ajax({
     type: 'POST',
     url: cpURL + ep,
@@ -231,7 +233,7 @@ function deletecluster(cID) {
 
 // function vpc(cID) {
 //   var ep = '/vpc';
-//   $('#status').html('<img src="./img/standby.gif" alt="please wait" width="64px">');
+//   $('#status').html('<img src="./standby.gif" alt="please wait" width="64px">');
 //   $.ajax({
 //     type: 'GET',
 //     url: cpURL + ep,

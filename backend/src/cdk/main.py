@@ -116,6 +116,11 @@ class CodepipelineStack(core.Stack):
             #         service='codebuild.amazonaws.com'
             #     )
             # )
+            # iam_role.grant(
+            #     iam.ServicePrincipal(
+            #         service='eks.amazonaws.com'
+            #     )
+            # )
             iam_role.add_to_policy(
                 statement=iam.PolicyStatement(
                     resources=["arn:aws:s3:::*/*"],
