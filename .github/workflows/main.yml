@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -15,4 +15,4 @@ jobs:
         SLACK_CHANNEL: general # Optional.
       uses: Ilshidur/action-slack@master
       with:
-        args: 'New PR merged to Master'
+        args: 'New commit merged to EKSboot'
