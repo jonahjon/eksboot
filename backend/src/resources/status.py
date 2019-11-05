@@ -50,7 +50,8 @@ class Status(Resource):
         aws_logger.info(f"/status/{name}   GET")
         args = status_parser.parse_args()
         addon_args = create_addon_parser.parse_args(req=status_parser)
-        eks = EKS(aws_logger)
+        region = os.getenv('AWS_DEFAULT_REGION', default='us-west-2')
+        eks = EKS(aws_logger, region=region)
         try:
             cluster_info = eks.DescribeClusterRequest(cluster=name)
         except Exception as e:

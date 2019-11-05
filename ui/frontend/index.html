@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="EKSphemeral">
-    <meta name="author" content="Michael Hausenblas">
+    <meta name="description" content="EKSboot">
+    <meta name="author" content="Jonah Jones">
     <meta name="keyword" content="Kubernetes,AWS,EKS">
     <link rel="shortcut icon" href=".//img/favicon.ico">
     <title>EKSphemeral</title>
@@ -51,8 +51,10 @@
         </div>
         <div>
             <fieldset>
-                <label for="iamrole"><strong>Iam role ARN for Kubeconfig</strong>:</label>
+                <label for="iamrole"><strong>Use Existing role for Kubectl</strong>:</label>
                 <input type="text" id="iciamrole" name="iciamrole" size="50" required>
+                <!-- <label for="iamrole"><strong>Create Role for me</strong>:</label>
+                <input type="checkbox" id="iciamrole" name="iciamrole"required> -->
             </fieldset>
         </div>
         <div>
@@ -167,7 +169,7 @@
         window.onload = setupRefresh;
   
         function setupRefresh() {
-            setInterval("refreshFrame();", 1000);
+            setInterval("refreshFrame();", 10000);
         }
         function refreshFrame() {
            parent.right_frame.location.reload();
