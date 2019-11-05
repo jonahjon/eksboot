@@ -6,6 +6,7 @@ from environment.environment import environment_config
 class Server(object):
     def __init__(self):
         self.app = Flask(__name__)
+        self.region = os.getenv('AWS_DEFAULT_REGION', default='us-west-2')
         self.api = Api(self.app,
             version='1.0', 
             title='EKS Boot',

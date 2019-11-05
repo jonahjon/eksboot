@@ -5,16 +5,17 @@ from models.models import delete_parser, create_addon_parser
 from environment.logger_flask import logger
 from environment.logger_aws import Logger
 from environment.template import write_jinja_file, zip_function_upload, streaming_output, create_cdk_json
-from lib.s3 import S3
+from lib.s3 import S3, S3Client
+from lib.cloudformation import Cloudformation
 import os
+from time import sleep
 
 #from lib.eks import EKS
 #import os
 #import uuid
 #import json
 
-app, api = server.app, server.api
-
+app, region, api = server.app, server.region, server.api
 aws_logger = Logger(loglevel='info')
 
 response_dict = {
@@ -38,84 +39,49 @@ class Delete(Resource):
     @delete_ns.doc(responses=response_dict)
     def post(self, name):
         '''
-        For delete we only need to parse the args and get the name of the cluster
-        Then we need to update the codebuild step to delete the pipline using eksctl
-        Last we delete the actual cdk infra itself
+        1. Delete EKS cluster cloudformation
+        2. Delete CDK stack
+        3. Delete Items from s3 bucket
         '''
         aws_logger.info('/delete/{} POST'.format(name))
         args = delete_parser.parse_args()
         aws_logger.info(args)
-        s3 = S3(aws_logger)
+        s3r = S3(aws_logger, region=region)
+        config = s3r.download_dict(f"{name}.json", args['s3bucket'])
+        if config is None:
+            return f"already deleted stack {name}"
+
+        aws_logger.info(config)
+        cf = Cloudformation(aws_logger, region=region)
+        cf.delete_stack(StackName=config['cloudformation_ng'])
+        for i in range(300):
+            check = cf.describe_stack(StackName=config['cloudformation_ng'])
+            if check:
+                sleep(1)
+                i+= 1
+            else:
+                aws_logger.info("NodeGroup Stack Deleted")
+                break
+
+        cf.delete_stack(StackName=config['cloudformation_cp'])
+        for i in range(600):
+            check = cf.describe_stack(StackName=config['cloudformation_cp'])
+            if check:
+                sleep(1)
+                i+= 1
+            else:
+                aws_logger.info("ControlPlane Stack Deleted")
+                break
+
         chdir = os.getcwd()
-        # write_jinja_file(aws_logger, 
-        #     d=args,
-        #     i_filename='buildspec_delete.yml.j2', 
-        #     o_filename='buildspec.yml',
-        #      path='{}/codebuild/'.format(chdir)
-        # )
-        # zipped = zip_function_upload(aws_logger, 
-        #     zip_file_name='buildspec.yml.zip',  
-        #     path='{}/codebuild/'.format(chdir)
-        # )
-        # aws_logger.info(f"Create zipfile {zipped}.... Uploading to bucket: {args['s3bucket']}")
-        # s3.upload_file(bucket=args['s3bucket'], file_name=f"{chdir}/codebuild/buildspec.yml.zip", file_obj=zipped)
-        # create_cdk_json(
-        #     {
-        #         'name':args['name'],
-        #         's3_bucket':args['s3bucket'],
-        #         'zipfile':'buildspec.yml.zip',
-        #     },
-        #     f"{chdir}/cdk/",
-        #     aws_logger
-        # )
-        aws_logger.info('created the cdk.json file for the CDK params')
-        #s3.upload_dict(f"{args['name']}.json", args, args['s3bucket'])
-        #streaming_output(["cdk", "deploy", "--require-approval", "never"], f"{chdir}/cdk/", aws_logger)
+        streaming_output(["cdk", "destroy", "-f"], f"{chdir}/cdk/", aws_logger)
+        s3c = S3Client(aws_logger, region=region)
+        s3c.delete_object(bucket_name=args['s3bucket'], key=f"{config['name']}.json")
         try:
-            return args
+            return f"deleted stack {name}"
         except KeyError as e:
             print(e)
             api.abort(500, e.__doc__, status = "Could not save information", statusCode = "500")
         except Exception as e:
             print(e)
             api.abort(400, e.__doc__, status = "Could not save information", statusCode = "400")
-
-
-api.add_namespace(delete_ns)
-@delete_ns.route('/cdk/<string:name>')
-class DeleteCDK(Resource):
-    @delete_ns.expect(delete_parser)
-    @delete_ns.doc(responses=response_dict)
-    def post(self, name):
-        '''
-        For delete we only need to parse the args and get the name of the cluster
-        Then we need to update the codebuild step to delete the pipline using eksctl
-        Last we delete the actual cdk infra itself
-        '''
-        aws_logger.info('/delete/{} POST'.format(name))
-        args = delete_parser.parse_args()
-        chdir = os.getcwd()
-        aws_logger.info(args)
-        create_cdk_json(
-            {
-                'name':name,
-                's3_bucket':args['s3bucket'],
-                'zipfile':'buildspec.yml.zip',
-                'iamrole':args['iamrole']
-            },
-            '{}/cdk/'.format(chdir),
-            aws_logger
-        )
-        aws_logger.info('created the cdk.json')
-        streaming_output(["cdk", "destroy", "--force"], '{}/cdk/'.format(chdir), aws_logger)
-        try:
-            return args
-        except KeyError as e:
-            print(e)
-            api.abort(500, e.__doc__, status = "Could not save information", statusCode = "500")
-        except Exception as e:
-            print(e)
-            api.abort(400, e.__doc__, status = "Could not save information", statusCode = "400")
-
-# HAve function to iterate over tags of cloudformation, and check to see if the stack exists.
-# Then Delete the stack

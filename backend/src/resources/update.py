@@ -8,7 +8,7 @@ from environment.template import write_jinja_file, zip_function_upload, streamin
 from lib.s3 import S3
 import os
 
-app, api = server.app, server.api
+app, region, api = server.app, server.region, server.api
 aws_logger = Logger(loglevel='info')
 
 response_dict = {

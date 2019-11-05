@@ -11,8 +11,7 @@ from lib.eks import EKS
 from lib.s3 import S3, S3Client
 import os
 
-app, api = server.app, server.api
-
+app, region, api = server.app, server.region, server.api
 aws_logger = Logger(loglevel='info')
 response_dict = {
     200: 'OK',

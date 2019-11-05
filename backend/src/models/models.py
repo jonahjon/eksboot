@@ -25,8 +25,6 @@ create_parser.add_argument('iamrole', type=str)
 create_parser.add_argument('addons', type=dict)
 create_parser.add_argument('numworkers', type=int)
 create_parser.add_argument('kubeversion', type=str)
-create_parser.add_argument('timeout', type=int)
-
 
 ### Status Main Dict ####
 status_parser = parent_parser.copy()

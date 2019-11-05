@@ -12,4 +12,4 @@ cluster-vpc.yaml
 /docs
 /ui/js/app.js.tmp
 /backend/*.env
-/backend/*.cdk.out
+/backend/src/cdk/cdk.out/*

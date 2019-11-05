@@ -15,53 +15,43 @@
 import boto3
 import inspect
 
-#eks_client = boto3.client('eks', region_name="us-west-2")
-class EKS(object):
+#cf_client = boto3.client('cloudformation', region_name="us-west-2")
+class Cloudformation(object):
     def __init__(self, logger, **kwargs):
         self.logger = logger
         if kwargs is not None:
             if kwargs.get('region') is not None:
                 logger.info("Setting up {} BOTO3 Client with default credentials in region {}".format(self.__class__.__name__, kwargs.get('region')))
-                self.eks_client = boto3.client('eks', region_name=kwargs.get('region'))
+                self.cf_client = boto3.client('cloudformation', region_name=kwargs.get('region'))
         else:
             logger.info("Setting up {} BOTO3 Client with default credentials".format(self.__class__.__name__))
-            self.eks_client = boto3.client('eks')
+            self.cf_client = boto3.client('cloudformation')
 
     def error_message(self, stack_trace, e):
         message = {'FILE': __file__.split('/')[-1], 'CLASS': self.__class__.__name__,
                 'METHOD': stack_trace, 'EXCEPTION': str(e)}
         return message
         
-    def DescribeClusterRequest(self, cluster):
+    def delete_stack(self, StackName):
         method = inspect.stack()[0][3]
         self.logger.info('Executing function {}'.format(method))
         try:
-            response = self.eks_client.describe_cluster(name=cluster)
-            cluster_info = response['cluster']
-            cluster_spec = {
-                'name':cluster_info['name'],
-                'kubeversion':cluster_info['version'],
-                'status':cluster_info['status'],
-                'platformv':cluster_info['platformVersion'],
-                'iamrole':cluster_info['roleArn']
-            }
-            if cluster_info['endpoint']:
-                cluster_spec['endpoint'] = cluster_info['endpoint']
-                return cluster_spec
-            else:
-                return cluster_spec
-        except Exception as e:
-            self.logger.exception(self.error_message(method, e))
-            raise
-
-    def ListCluster(self):
-        method = inspect.stack()[0][3]
-        self.logger.info('Executing function {}'.format(method))
-        try:
-            response = self.eks.ListCluster(
+            response = self.cf_client.delete_stack(
+                StackName=StackName
             )
+            self.logger.info(response)
             return response
         except Exception as e:
             self.logger.exception(self.error_message(method, e))
             raise
 
+    def describe_stack(self, StackName):
+        method = inspect.stack()[0][3]
+        self.logger.info('Executing function {}'.format(method))
+        try:
+            response = self.cf_client.describe_stacks(
+                StackName=StackName
+            )
+            return response
+        except Exception as e:
+            return None

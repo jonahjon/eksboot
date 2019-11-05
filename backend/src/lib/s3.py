@@ -38,22 +38,11 @@ class S3(object):
     def __init__(self, logger, **kwargs):
         self.logger = logger
         if kwargs is not None:
-            if kwargs.get('credentials') is None:
-                logger.debug("Setting up {} BOTO3 Resource with default credentials".format(self.__class__.__name__))
-                self.s3_client = boto3.resource('s3')
-            elif kwargs.get('region') is not None:
-                logger.debug("Setting up {} BOTO3 Resource with default credentials in region {}".format(self.__class__.__name__, kwargs.get('region')))
+            if kwargs.get('region') is not None:
+                logger.info("Setting up {} BOTO3 Resource with default credentials in region {}".format(self.__class__.__name__, kwargs.get('region')))
                 self.s3_client = boto3.resource('s3', region_name=kwargs.get('region'))
-            else:
-                logger.debug("Setting up {} BOTO3 Resource with ASSUMED ROLE credentials".format(self.__class__.__name__))
-                cred = kwargs.get('credentials')
-                self.s3_client = boto3.resource('s3',
-                                               aws_access_key_id=cred.get('AccessKeyId'),
-                                               aws_secret_access_key=cred.get('SecretAccessKey'),
-                                               aws_session_token=cred.get('SessionToken')
-                                               )
         else:
-            logger.debug("Setting up {} BOTO3 Resource with default credentials".format(self.__class__.__name__))
+            logger.info("Setting up {} BOTO3 Resource with default credentials".format(self.__class__.__name__))
             self.s3_client = boto3.resource('s3')
 
     def error_message(self, stack_trace, e):
@@ -94,8 +83,7 @@ class S3(object):
             json_content = json.loads(file_content)
             return json_content
         except Exception as e:
-            self.logger.exception(self.error_message(method, e))
-            raise
+            return None
 
     def list_bucket(self, bucket_name):
         method = inspect.stack()[0][3]
@@ -133,22 +121,11 @@ class S3Client(object):
     def __init__(self, logger, **kwargs):
         self.logger = logger
         if kwargs is not None:
-            if kwargs.get('credentials') is None:
-                logger.debug("Setting up {} BOTO3 Resource with default credentials".format(self.__class__.__name__))
-                self.s3_client = boto3.client('s3')
-            elif kwargs.get('region') is not None:
-                logger.debug("Setting up {} BOTO3 Resource with default credentials in region {}".format(self.__class__.__name__, kwargs.get('region')))
+            if kwargs.get('region') is not None:
+                logger.info("Setting up {} BOTO3 Resource with default credentials in region {}".format(self.__class__.__name__, kwargs.get('region')))
                 self.s3_client = boto3.client('s3', region_name=kwargs.get('region'))
-            else:
-                logger.debug("Setting up {} BOTO3 Resource with ASSUMED ROLE credentials".format(self.__class__.__name__))
-                cred = kwargs.get('credentials')
-                self.s3_client = boto3.client('s3',
-                                               aws_access_key_id=cred.get('AccessKeyId'),
-                                               aws_secret_access_key=cred.get('SecretAccessKey'),
-                                               aws_session_token=cred.get('SessionToken')
-                                               )
         else:
-            logger.debug("Setting up {} BOTO3 Resource with default credentials".format(self.__class__.__name__))
+            logger.info("Setting up {} BOTO3 Resource with default credentials".format(self.__class__.__name__))
             self.s3_client = boto3.client('s3')
 
 
@@ -165,6 +142,19 @@ class S3Client(object):
             for key in self.s3_client.list_objects(Bucket=bucket_name)['Contents']:
                 keys.append(key)
             return keys
+        except Exception as e:
+            self.logger.exception(self.error_message(method, e))
+            raise
+
+    def delete_object(self, bucket_name, key) -> list:
+        method = inspect.stack()[0][3]
+        self.logger.info('Executing function {}'.format(method))
+        try:
+            response = self.s3_client.delete_object(
+                Bucket=bucket_name,
+                Key=key
+            )
+            return response
         except Exception as e:
             self.logger.exception(self.error_message(method, e))
             raise

@@ -9,8 +9,7 @@ from environment.logger_aws import Logger
 from lib.s3 import S3, S3Client
 import os
 
-app, api = server.app, server.api
-
+app, region, api = server.app, server.region, server.api
 aws_logger = Logger(loglevel='info')
 
 response_dict = {
@@ -48,7 +47,7 @@ class ListAll(Resource):
         cluster_id_list = []
         args = list_parser.parse_args()
         if args['s3bucket']:
-            s3c = S3Client(aws_logger)
+            s3c = S3Client(aws_logger, region=region)
             eks_book_spec = s3c.list_bucket_keys(args['s3bucket'])
             for i in eks_book_spec:
                 key = i['Key'].split(".")[-1]
