@@ -20,6 +20,8 @@ type ClusterSpec struct {
 	// Iamrole specifies the Iam role to specify in the kubeconfig
 	Iamrole string `json:"iamrole"`
 	// NumWorkers specifies the number of worker nodes, defaults to 1
+	Autoscaling map[string]int `json:"autoscaling"`
+	// NumWorkers specifies the number of worker nodes, defaults to 1
 	NumWorkers int `json:"numworkers"`
 	// KubeVersion  specifies the Kubernetes version to use, defaults to `1.12`
 	KubeVersion string `json:"kubeversion"`

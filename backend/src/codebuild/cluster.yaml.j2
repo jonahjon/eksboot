@@ -7,10 +7,18 @@ metadata:
 
 nodeGroups:
   - name: {{ name }}-ng
-    desiredCapacity: {{ numworkers }}
+    {% if autoscaling['numworkers'] is defined -%}
+    desiredCapacity: {{ autoscaling['numworkers'] }}
+    {%- endif -%}
+    {% if autoscaling['minworkers'] is defined -%}
+    minSize: {{ autoscaling['minworkers'] }}
+    {%- endif -%}
+    {% if autoscaling['maxworkers'] is defined -%}
+    maxSize: {{ autoscaling['maxworkers'] }}
+    {%- endif -%}
     iam:
       withAddonPolicies:
-        cloudWatch:
+        cloudWatch: true
         {%- if addons['togalb'] -%}
         albIngress: true
         {%- endif -%}

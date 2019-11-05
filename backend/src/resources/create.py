@@ -58,7 +58,9 @@ class Create(Resource):
         create_addon_args = create_addon_parser.parse_args(req=create_parser)
         chdir = os.getcwd()
         aws_logger.info(args)
-        s3 = S3(aws_logger)
+        region = os.getenv('AWS_DEFAULT_REGION', default='us-west-2')
+        args['region'] = region
+        s3 = S3(aws_logger, region=region)
         write_jinja_file(aws_logger, 
             d=args, 
             i_filename='cluster.yaml.j2', 

@@ -76,9 +76,11 @@ function createCluster() {
     var togappmesh = $('#togappmesh').is(':checked');
     var clusterspec = { 
       'name': cname,
-      'numworkers': parseInt(cworkernum, 10),
-      'minworkers': parseInt(cworkermin, 10),
-      'maxworkers': parseInt(cworkermax, 10),
+      'autoscaling':{
+        'numworkers': parseInt(cworkernum, 10),
+        'minworkers': parseInt(cworkermin, 10),
+        'maxworkers': parseInt(cworkermax, 10),
+      },
       'iamrole': ciamrole,
       'kubeversion': cversion, 
       'addons':{
@@ -191,6 +193,7 @@ function clusterconf(cID) {
         console.info(d);
         var buffer = '';
         buffer += '<div class="configinstructions">';
+        buffer += '<div class="cdfield"><span class="cdtitle">Cluster Region</span> ' + d.region + '</div>';
         buffer += '<div class="cdfield"><span class="cdtitle">KubeConfig CLI for Cluster:</span> ' + d.name + '</div>';
         dbuffer += '<div class="cdfield"><span class="cdtitle">$</span> <code class="inlinecode">' + d.clicommand + '</code></div>';
         var dbuffer = '';
