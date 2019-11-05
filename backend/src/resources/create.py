@@ -11,7 +11,7 @@ import os
 import uuid
 
 
-app, api = server.app, server.api
+app, region, api = server.app, server.region, server.api
 aws_logger = Logger(loglevel='info')
 
 response_dict = {
@@ -58,7 +58,6 @@ class Create(Resource):
         create_addon_args = create_addon_parser.parse_args(req=create_parser)
         chdir = os.getcwd()
         aws_logger.info(args)
-        region = os.getenv('AWS_DEFAULT_REGION', default='us-west-2')
         args['region'] = region
         s3 = S3(aws_logger, region=region)
         write_jinja_file(aws_logger, 

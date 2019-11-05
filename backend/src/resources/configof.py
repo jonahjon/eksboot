@@ -5,10 +5,10 @@ from server.instance import server
 from models.models import config_parser
 from environment.logger_flask import logger
 from environment.logger_aws import Logger
-from lib.eks import EKS
-from lib.s3 import S3, S3Client
+from lib.cloudformation import Cloudformation
+from lib.s3 import S3
 
-app, api = server.app, server.api
+app, region, api = server.app, server.region, server.api
 
 aws_logger = Logger(loglevel='info')
 
@@ -47,8 +47,11 @@ class ConfigOf(Resource):
         '''
         aws_logger.info(f"/configof/{name} POST")
         args = config_parser.parse_args()
-        s3r = S3(aws_logger)
-        config = s3r.download_dict(f"{name}.json", args['s3bucket'])
+        s3 = S3(aws_logger, region=region)
+        config = s3.download_dict(f"{name}.json", args['s3bucket'])
+        config['cloudformation_cp'] = f"eksctl-{name}-cluster"
+        config['cloudformation_ng'] = f"eksctl-{name}-nodegroup-{name}-ng"
+        s3.upload_dict(f"{name}.json", config, args['s3bucket'])
         aws_logger.info(config)
         try:
             return config
