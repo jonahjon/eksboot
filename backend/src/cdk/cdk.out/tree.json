@@ -29,12 +29,12 @@
             ]
           },
           {
-            "id": "helloworld1-cluster",
-            "path": "EKHelloSboot/helloworld1-cluster",
+            "id": "cat-cluster",
+            "path": "EKHelloSboot/cat-cluster",
             "children": [
               {
                 "id": "Resource",
-                "path": "EKHelloSboot/helloworld1-cluster/Resource"
+                "path": "EKHelloSboot/cat-cluster/Resource"
               }
             ]
           },
@@ -43,24 +43,24 @@
             "path": "EKHelloSboot/s3_source"
           },
           {
-            "id": "helloworld1",
-            "path": "EKHelloSboot/helloworld1",
+            "id": "cat",
+            "path": "EKHelloSboot/cat",
             "children": [
               {
                 "id": "Role",
-                "path": "EKHelloSboot/helloworld1/Role",
+                "path": "EKHelloSboot/cat/Role",
                 "children": [
                   {
                     "id": "Resource",
-                    "path": "EKHelloSboot/helloworld1/Role/Resource"
+                    "path": "EKHelloSboot/cat/Role/Resource"
                   },
                   {
                     "id": "DefaultPolicy",
-                    "path": "EKHelloSboot/helloworld1/Role/DefaultPolicy",
+                    "path": "EKHelloSboot/cat/Role/DefaultPolicy",
                     "children": [
                       {
                         "id": "Resource",
-                        "path": "EKHelloSboot/helloworld1/Role/DefaultPolicy/Resource"
+                        "path": "EKHelloSboot/cat/Role/DefaultPolicy/Resource"
                       }
                     ]
                   }
@@ -68,31 +68,31 @@
               },
               {
                 "id": "Resource",
-                "path": "EKHelloSboot/helloworld1/Resource"
+                "path": "EKHelloSboot/cat/Resource"
               },
               {
                 "id": "Source",
-                "path": "EKHelloSboot/helloworld1/Source",
+                "path": "EKHelloSboot/cat/Source",
                 "children": [
                   {
                     "id": "s3Source",
-                    "path": "EKHelloSboot/helloworld1/Source/s3Source",
+                    "path": "EKHelloSboot/cat/Source/s3Source",
                     "children": [
                       {
                         "id": "CodePipelineActionRole",
-                        "path": "EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole",
+                        "path": "EKHelloSboot/cat/Source/s3Source/CodePipelineActionRole",
                         "children": [
                           {
                             "id": "Resource",
-                            "path": "EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/Resource"
+                            "path": "EKHelloSboot/cat/Source/s3Source/CodePipelineActionRole/Resource"
                           },
                           {
                             "id": "DefaultPolicy",
-                            "path": "EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/DefaultPolicy",
+                            "path": "EKHelloSboot/cat/Source/s3Source/CodePipelineActionRole/DefaultPolicy",
                             "children": [
                               {
                                 "id": "Resource",
-                                "path": "EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/DefaultPolicy/Resource"
+                                "path": "EKHelloSboot/cat/Source/s3Source/CodePipelineActionRole/DefaultPolicy/Resource"
                               }
                             ]
                           }
@@ -103,28 +103,28 @@
                 ]
               },
               {
-                "id": "helloworld1-EksInstall",
-                "path": "EKHelloSboot/helloworld1/helloworld1-EksInstall",
+                "id": "cat-EksInstall",
+                "path": "EKHelloSboot/cat/cat-EksInstall",
                 "children": [
                   {
                     "id": "installEKS",
-                    "path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS",
+                    "path": "EKHelloSboot/cat/cat-EksInstall/installEKS",
                     "children": [
                       {
                         "id": "CodePipelineActionRole",
-                        "path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole",
+                        "path": "EKHelloSboot/cat/cat-EksInstall/installEKS/CodePipelineActionRole",
                         "children": [
                           {
                             "id": "Resource",
-                            "path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/Resource"
+                            "path": "EKHelloSboot/cat/cat-EksInstall/installEKS/CodePipelineActionRole/Resource"
                           },
                           {
                             "id": "DefaultPolicy",
-                            "path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/DefaultPolicy",
+                            "path": "EKHelloSboot/cat/cat-EksInstall/installEKS/CodePipelineActionRole/DefaultPolicy",
                             "children": [
                               {
                                 "id": "Resource",
-                                "path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/DefaultPolicy/Resource"
+                                "path": "EKHelloSboot/cat/cat-EksInstall/installEKS/CodePipelineActionRole/DefaultPolicy/Resource"
                               }
                             ]
                           }

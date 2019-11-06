@@ -17,13 +17,19 @@ create_addon_parser.add_argument('togca', type=bool, location=('addons'))
 create_addon_parser.add_argument('toghpa', type=bool, location=('addons'))
 
 
+create_asg_parser = reqparse.RequestParser()
+create_asg_parser.add_argument('numworkers',type=int)
+create_asg_parser.add_argument('minworkers',type=int)
+create_asg_parser.add_argument('maxworkers',type=int)
+
+
 ### Create Main Dict ####
 #### Uses Parser Inheritence from parent parser ###
 create_parser = parent_parser.copy()
 create_parser.add_argument('name', type=str)
 create_parser.add_argument('iamrole', type=str)
 create_parser.add_argument('addons', type=dict)
-create_parser.add_argument('numworkers', type=int)
+create_parser.add_argument('autoscaling', type=dict)
 create_parser.add_argument('kubeversion', type=str)
 
 ### Status Main Dict ####

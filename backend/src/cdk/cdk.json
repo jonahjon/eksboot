@@ -1,9 +1,9 @@
 {
   "app": "python3 main.py",
   "context": {
-    "name": "helloworld1",
-    "iamrole":"arn:aws:iam::164382793440:role/kube_test",
+    "name": "cat",
     "s3_bucket": "aoisoifjsdiojefdsr",
-    "zipfile": "buildspec.yml.zip"
+    "zipfile": "buildspec.yml.zip",
+    "iamrole": "arn:aws:iam::164382793440:role/service-role/kubectl-test"
   }
 }

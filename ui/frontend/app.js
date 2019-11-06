@@ -63,6 +63,8 @@ function createCluster() {
 
     var cname = $('#icname').val();
     var cworkernum = $('#icworkernum').val();
+    var cworkermin = $('#icworkermin').val();
+    var cworkermax = $('#icworkermax').val();
     var ciamrole = $('#iciamrole').val();
     var cversion = $('#ickversion option:selected').text();
     var chelm = $('#ichelm option:selected').text();
@@ -74,13 +76,9 @@ function createCluster() {
     var toghpa = $('#toghpa').is(':checked');
     var toghelm=$('#toghelm').is(':checked');
     var togappmesh = $('#togappmesh').is(':checked');
+
     var clusterspec = { 
       'name': cname,
-      'autoscaling':{
-        'numworkers': parseInt(cworkernum, 10),
-        'minworkers': parseInt(cworkermin, 10),
-        'maxworkers': parseInt(cworkermax, 10),
-      },
       'iamrole': ciamrole,
       'kubeversion': cversion, 
       'addons':{
@@ -92,8 +90,14 @@ function createCluster() {
         'togalb': togalb,
         'togca': togca,
         'toghpa': toghpa
+      },
+      'autoscaling':{
+        'numworkers': parseInt(cworkernum, 10),
+        'minworkers': parseInt(cworkermin, 10),
+        'maxworkers': parseInt(cworkermax, 10),
       }
     };
+
     $.ajax({
       type: 'POST',
       url: cpURL+'/create',
@@ -200,7 +204,7 @@ function clusterconf(cID) {
         dbuffer += '<div class="moarfield"><span class="cdtitle">$</span> <code class="inlinecode">' + d.clicommand + '</code></div>';
         dbuffer += '<div class="moarfield"><span class="cdtitle">Config Bucket:</span> ' + d.s3bucket + '</div>';
         dbuffer += '<div class="moarfield"><span class="cdtitle">IAM role:</span> <code class="inlinecode">' + d.iamrole + '</code></div>';
-        dbuffer += '<div class="moarfield"><span class="cdtitle">Number of Workers:</span> ' + d.numworkers + '</div>';
+        dbuffer += '<div class="moarfield"><span class="cdtitle">Desired # Workers:</span> ' + d.numworkers + '</div>';
         dbuffer += '<div class="moarfield"><span class="cdtitle">Addons Helm:</span> <code class="inlinecode">' + d.addons['toghelm'] + '</code></div>';
         buffer += '<div class="cdfield"><span class="cdtitle">Config summary:</span> ' + dbuffer + '</div>';
         $('#' + cID + ' .cdetails').html(buffer);
