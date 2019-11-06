@@ -116,7 +116,6 @@ func CreateCluster(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	fmt.Fprintf(os.Stdout, "\x1b[94m From the web UI I got the following values for cluster create: %+v\x1b[0m\n", cs)
-	//create cluster spec in control plane:
 	c := &http.Client{
 		Timeout: time.Second * 300,
 	}

@@ -36,7 +36,7 @@
                       },
                       ":log-group:/aws/codebuild/",
                       {
-                        "Ref": "helloworld1cluster5F5BBFF1"
+                        "Ref": "catcluster646C0C76"
                       }
                     ]
                   ]
@@ -59,7 +59,7 @@
                       },
                       ":log-group:/aws/codebuild/",
                       {
-                        "Ref": "helloworld1cluster5F5BBFF1"
+                        "Ref": "catcluster646C0C76"
                       },
                       ":*"
                     ]
@@ -87,14 +87,14 @@
         },
         "PolicyName": "kuberolePolicy31DAFD50",
         "Roles": [
-          "kube_test"
+          "service-role/kubectl-test"
         ]
       },
       "Metadata": {
         "aws:cdk:path": "EKHelloSboot/kube_role/Policy/Resource"
       }
     },
-    "helloworld1cluster5F5BBFF1": {
+    "catcluster646C0C76": {
       "Type": "AWS::CodeBuild::Project",
       "Properties": {
         "Artifacts": {
@@ -111,24 +111,24 @@
             {
               "Name": "name",
               "Type": "PLAINTEXT",
-              "Value": "helloworld1"
+              "Value": "cat"
             }
           ],
           "Image": "aws/codebuild/standard:1.0",
           "PrivilegedMode": false,
           "Type": "LINUX_CONTAINER"
         },
-        "ServiceRole": "arn:aws:iam::164382793440:role/kube_test",
+        "ServiceRole": "arn:aws:iam::164382793440:role/service-role/kubectl-test",
         "Source": {
           "Type": "CODEPIPELINE"
         },
-        "Name": "eks-pipeline-helloworld1"
+        "Name": "eks-pipeline-cat"
       },
       "Metadata": {
-        "aws:cdk:path": "EKHelloSboot/helloworld1-cluster/Resource"
+        "aws:cdk:path": "EKHelloSboot/cat-cluster/Resource"
       }
     },
-    "helloworld1Role7191663A": {
+    "catRole58FD9FAE": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -145,10 +145,10 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "EKHelloSboot/helloworld1/Role/Resource"
+        "aws:cdk:path": "EKHelloSboot/cat/Role/Resource"
       }
     },
-    "helloworld1RoleDefaultPolicyC74082F1": {
+    "catRoleDefaultPolicy3FE595E9": {
       "Type": "AWS::IAM::Policy",
       "Properties": {
         "PolicyDocument": {
@@ -173,7 +173,7 @@
               "Effect": "Allow",
               "Resource": {
                 "Fn::GetAtt": [
-                  "helloworld1Sources3SourceCodePipelineActionRole46F9DDDC",
+                  "catSources3SourceCodePipelineActionRoleC4694F17",
                   "Arn"
                 ]
               }
@@ -183,7 +183,7 @@
               "Effect": "Allow",
               "Resource": {
                 "Fn::GetAtt": [
-                  "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRole275CAB87",
+                  "catcatEksInstallinstallEKSCodePipelineActionRole99974CF3",
                   "Arn"
                 ]
               }
@@ -191,23 +191,23 @@
           ],
           "Version": "2012-10-17"
         },
-        "PolicyName": "helloworld1RoleDefaultPolicyC74082F1",
+        "PolicyName": "catRoleDefaultPolicy3FE595E9",
         "Roles": [
           {
-            "Ref": "helloworld1Role7191663A"
+            "Ref": "catRole58FD9FAE"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EKHelloSboot/helloworld1/Role/DefaultPolicy/Resource"
+        "aws:cdk:path": "EKHelloSboot/cat/Role/DefaultPolicy/Resource"
       }
     },
-    "helloworld122D99DCB": {
+    "catE95A5233": {
       "Type": "AWS::CodePipeline::Pipeline",
       "Properties": {
         "RoleArn": {
           "Fn::GetAtt": [
-            "helloworld1Role7191663A",
+            "catRole58FD9FAE",
             "Arn"
           ]
         },
@@ -233,7 +233,7 @@
                 ],
                 "RoleArn": {
                   "Fn::GetAtt": [
-                    "helloworld1Sources3SourceCodePipelineActionRole46F9DDDC",
+                    "catSources3SourceCodePipelineActionRoleC4694F17",
                     "Arn"
                   ]
                 },
@@ -253,7 +253,7 @@
                 },
                 "Configuration": {
                   "ProjectName": {
-                    "Ref": "helloworld1cluster5F5BBFF1"
+                    "Ref": "catcluster646C0C76"
                   }
                 },
                 "InputArtifacts": [
@@ -269,31 +269,31 @@
                 ],
                 "RoleArn": {
                   "Fn::GetAtt": [
-                    "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRole275CAB87",
+                    "catcatEksInstallinstallEKSCodePipelineActionRole99974CF3",
                     "Arn"
                   ]
                 },
                 "RunOrder": 1
               }
             ],
-            "Name": "helloworld1-EksInstall"
+            "Name": "cat-EksInstall"
           }
         ],
         "ArtifactStore": {
           "Location": "aoisoifjsdiojefdsr",
           "Type": "S3"
         },
-        "Name": "helloworld1"
+        "Name": "cat"
       },
       "DependsOn": [
-        "helloworld1RoleDefaultPolicyC74082F1",
-        "helloworld1Role7191663A"
+        "catRoleDefaultPolicy3FE595E9",
+        "catRole58FD9FAE"
       ],
       "Metadata": {
-        "aws:cdk:path": "EKHelloSboot/helloworld1/Resource"
+        "aws:cdk:path": "EKHelloSboot/cat/Resource"
       }
     },
-    "helloworld1Sources3SourceCodePipelineActionRole46F9DDDC": {
+    "catSources3SourceCodePipelineActionRoleC4694F17": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -325,10 +325,10 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/Resource"
+        "aws:cdk:path": "EKHelloSboot/cat/Source/s3Source/CodePipelineActionRole/Resource"
       }
     },
-    "helloworld1Sources3SourceCodePipelineActionRoleDefaultPolicyA673C303": {
+    "catSources3SourceCodePipelineActionRoleDefaultPolicy39F6D0DF": {
       "Type": "AWS::IAM::Policy",
       "Properties": {
         "PolicyDocument": {
@@ -360,18 +360,18 @@
           ],
           "Version": "2012-10-17"
         },
-        "PolicyName": "helloworld1Sources3SourceCodePipelineActionRoleDefaultPolicyA673C303",
+        "PolicyName": "catSources3SourceCodePipelineActionRoleDefaultPolicy39F6D0DF",
         "Roles": [
           {
-            "Ref": "helloworld1Sources3SourceCodePipelineActionRole46F9DDDC"
+            "Ref": "catSources3SourceCodePipelineActionRoleC4694F17"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "EKHelloSboot/cat/Source/s3Source/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
-    "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRole275CAB87": {
+    "catcatEksInstallinstallEKSCodePipelineActionRole99974CF3": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -403,10 +403,10 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/Resource"
+        "aws:cdk:path": "EKHelloSboot/cat/cat-EksInstall/installEKS/CodePipelineActionRole/Resource"
       }
     },
-    "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRoleDefaultPolicyCF03927F": {
+    "catcatEksInstallinstallEKSCodePipelineActionRoleDefaultPolicy0A28C51D": {
       "Type": "AWS::IAM::Policy",
       "Properties": {
         "PolicyDocument": {
@@ -420,7 +420,7 @@
               "Effect": "Allow",
               "Resource": {
                 "Fn::GetAtt": [
-                  "helloworld1cluster5F5BBFF1",
+                  "catcluster646C0C76",
                   "Arn"
                 ]
               }
@@ -428,15 +428,15 @@
           ],
           "Version": "2012-10-17"
         },
-        "PolicyName": "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRoleDefaultPolicyCF03927F",
+        "PolicyName": "catcatEksInstallinstallEKSCodePipelineActionRoleDefaultPolicy0A28C51D",
         "Roles": [
           {
-            "Ref": "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRole275CAB87"
+            "Ref": "catcatEksInstallinstallEKSCodePipelineActionRole99974CF3"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "EKHelloSboot/cat/cat-EksInstall/installEKS/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     }
   }

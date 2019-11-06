@@ -19,8 +19,8 @@
             "type": "aws:cdk:logicalId",
             "data": "kuberolePolicy31DAFD50",
             "trace": [
-              "new Policy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
-              "MutableImport.addToPolicy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/role.js:115:42)",
+              "new Policy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
+              "MutableImport.addToPolicy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/role.js:115:42)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:51",
               "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:25",
@@ -33,13 +33,13 @@
             ]
           }
         ],
-        "/EKHelloSboot/helloworld1-cluster/Resource": [
+        "/EKHelloSboot/cat-cluster/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "helloworld1cluster5F5BBFF1",
+            "data": "catcluster646C0C76",
             "trace": [
-              "new Project (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codebuild/lib/project.js:257:26)",
-              "new PipelineProject (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:11:9)",
+              "new Project (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codebuild/lib/project.js:257:26)",
+              "new PipelineProject (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:11:9)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:49",
               "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
               "Kernel._create (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:26)",
@@ -51,13 +51,13 @@
             ]
           }
         ],
-        "/EKHelloSboot/helloworld1/Role/Resource": [
+        "/EKHelloSboot/cat/Role/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "helloworld1Role7191663A",
+            "data": "catRole58FD9FAE",
             "trace": [
-              "new Role (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
-              "new Pipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:95:35)",
+              "new Role (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
+              "new Pipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:95:35)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:49",
               "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
               "Kernel._create (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:26)",
@@ -69,18 +69,18 @@
             ]
           }
         ],
-        "/EKHelloSboot/helloworld1/Role/DefaultPolicy/Resource": [
+        "/EKHelloSboot/cat/Role/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "helloworld1RoleDefaultPolicyC74082F1",
+            "data": "catRoleDefaultPolicy3FE595E9",
             "trace": [
-              "new Policy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
-              "Role.addToPolicy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/role.js:153:34)",
-              "Function.addToPrincipal (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/grant.js:54:65)",
-              "Function.addToPrincipalOrResource (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/grant.js:31:30)",
-              "Import.grant (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-s3/lib/bucket.js:239:29)",
-              "Import.grantReadWrite (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-s3/lib/bucket.js:188:21)",
-              "new Pipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:108:29)",
+              "new Policy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
+              "Role.addToPolicy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/role.js:153:34)",
+              "Function.addToPrincipal (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/grant.js:54:65)",
+              "Function.addToPrincipalOrResource (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/grant.js:31:30)",
+              "Import.grant (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-s3/lib/bucket.js:239:29)",
+              "Import.grantReadWrite (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-s3/lib/bucket.js:188:21)",
+              "new Pipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:108:29)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:49",
               "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
               "Kernel._create (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:26)",
@@ -92,12 +92,12 @@
             ]
           }
         ],
-        "/EKHelloSboot/helloworld1/Resource": [
+        "/EKHelloSboot/cat/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "helloworld122D99DCB",
+            "data": "catE95A5233",
             "trace": [
-              "new Pipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:98:30)",
+              "new Pipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:98:30)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:49",
               "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
               "Kernel._create (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6892:26)",
@@ -109,18 +109,18 @@
             ]
           }
         ],
-        "/EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/Resource": [
+        "/EKHelloSboot/cat/Source/s3Source/CodePipelineActionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "helloworld1Sources3SourceCodePipelineActionRole46F9DDDC",
+            "data": "catSources3SourceCodePipelineActionRoleC4694F17",
             "trace": [
-              "new Role (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
-              "Pipeline.getRoleForAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:328:26)",
-              "Pipeline._attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:192:33)",
-              "Stage.attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:105:31)",
-              "Stage.addAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:64:33)",
-              "new Stage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:25:18)",
-              "Pipeline.addStage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:155:23)",
+              "new Role (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
+              "Pipeline.getRoleForAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:328:26)",
+              "Pipeline._attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:192:33)",
+              "Stage.attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:105:31)",
+              "Stage.addAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:64:33)",
+              "new Stage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:25:18)",
+              "Pipeline.addStage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:155:23)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:51",
               "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:25",
@@ -133,24 +133,24 @@
             ]
           }
         ],
-        "/EKHelloSboot/helloworld1/Source/s3Source/CodePipelineActionRole/DefaultPolicy/Resource": [
+        "/EKHelloSboot/cat/Source/s3Source/CodePipelineActionRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "helloworld1Sources3SourceCodePipelineActionRoleDefaultPolicyA673C303",
+            "data": "catSources3SourceCodePipelineActionRoleDefaultPolicy39F6D0DF",
             "trace": [
-              "new Policy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
-              "Role.addToPolicy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/role.js:153:34)",
-              "Function.addToPrincipal (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/grant.js:54:65)",
-              "Function.addToPrincipalOrResource (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/grant.js:31:30)",
-              "Import.grant (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-s3/lib/bucket.js:239:29)",
-              "Import.grantRead (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-s3/lib/bucket.js:140:21)",
-              "S3SourceAction.bound (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline-actions/lib/s3/source-action.js:49:27)",
-              "S3SourceAction.bind (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline-actions/lib/action.js:23:21)",
-              "Pipeline._attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:194:41)",
-              "Stage.attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:105:31)",
-              "Stage.addAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:64:33)",
-              "new Stage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:25:18)",
-              "Pipeline.addStage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:155:23)",
+              "new Policy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
+              "Role.addToPolicy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/role.js:153:34)",
+              "Function.addToPrincipal (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/grant.js:54:65)",
+              "Function.addToPrincipalOrResource (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/grant.js:31:30)",
+              "Import.grant (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-s3/lib/bucket.js:239:29)",
+              "Import.grantRead (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-s3/lib/bucket.js:140:21)",
+              "S3SourceAction.bound (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline-actions/lib/s3/source-action.js:49:27)",
+              "S3SourceAction.bind (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline-actions/lib/action.js:23:21)",
+              "Pipeline._attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:194:41)",
+              "Stage.attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:105:31)",
+              "Stage.addAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:64:33)",
+              "new Stage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:25:18)",
+              "Pipeline.addStage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:155:23)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:51",
               "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:25",
@@ -163,18 +163,18 @@
             ]
           }
         ],
-        "/EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/Resource": [
+        "/EKHelloSboot/cat/cat-EksInstall/installEKS/CodePipelineActionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRole275CAB87",
+            "data": "catcatEksInstallinstallEKSCodePipelineActionRole99974CF3",
             "trace": [
-              "new Role (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
-              "Pipeline.getRoleForAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:328:26)",
-              "Pipeline._attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:192:33)",
-              "Stage.attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:105:31)",
-              "Stage.addAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:64:33)",
-              "new Stage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:25:18)",
-              "Pipeline.addStage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:155:23)",
+              "new Role (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
+              "Pipeline.getRoleForAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:328:26)",
+              "Pipeline._attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:192:33)",
+              "Stage.attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:105:31)",
+              "Stage.addAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:64:33)",
+              "new Stage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:25:18)",
+              "Pipeline.addStage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:155:23)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:51",
               "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:25",
@@ -187,20 +187,20 @@
             ]
           }
         ],
-        "/EKHelloSboot/helloworld1/helloworld1-EksInstall/installEKS/CodePipelineActionRole/DefaultPolicy/Resource": [
+        "/EKHelloSboot/cat/cat-EksInstall/installEKS/CodePipelineActionRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "helloworld1helloworld1EksInstallinstallEKSCodePipelineActionRoleDefaultPolicyCF03927F",
+            "data": "catcatEksInstallinstallEKSCodePipelineActionRoleDefaultPolicy0A28C51D",
             "trace": [
-              "new Policy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
-              "Role.addToPolicy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-iam/lib/role.js:153:34)",
-              "CodeBuildAction.bound (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline-actions/lib/codebuild/build-action.js:46:22)",
-              "CodeBuildAction.bind (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline-actions/lib/action.js:23:21)",
-              "Pipeline._attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:194:41)",
-              "Stage.attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:105:31)",
-              "Stage.addAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:64:33)",
-              "new Stage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:25:18)",
-              "Pipeline.addStage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-RizKzs/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:155:23)",
+              "new Policy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
+              "Role.addToPolicy (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-iam/lib/role.js:153:34)",
+              "CodeBuildAction.bound (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline-actions/lib/codebuild/build-action.js:46:22)",
+              "CodeBuildAction.bind (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline-actions/lib/action.js:23:21)",
+              "Pipeline._attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:194:41)",
+              "Stage.attachActionToPipeline (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:105:31)",
+              "Stage.addAction (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:64:33)",
+              "new Stage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/stage.js:25:18)",
+              "Pipeline.addStage (/private/var/folders/9s/p27yjxcx72z_r7_nvbztmj6176r8zt/T/jsii-kernel-mHm7Hl/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:155:23)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:51",
               "Kernel._wrapSandboxCode (/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7344:20)",
               "/Users/jonahjo/Documents/jonahjones777/eksphemeral/backend/src/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6725:25",
