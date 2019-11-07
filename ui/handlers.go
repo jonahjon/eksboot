@@ -201,7 +201,7 @@ func DeleteCluster(w http.ResponseWriter, r *http.Request) {
 	req, err := json.Marshal(cs)
 	ekspcp := getEndpoint()
 	c := &http.Client{
-		Timeout: time.Second * 300,
+		Timeout: time.Second * 900,
 	}
 	pres, err := c.Post(ekspcp+"/delete/"+targetcluster, "application/json", bytes.NewBuffer(req))
 	if err != nil {

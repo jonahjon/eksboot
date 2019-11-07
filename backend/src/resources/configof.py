@@ -49,6 +49,7 @@ class ConfigOf(Resource):
         args = config_parser.parse_args()
         s3 = S3(aws_logger, region=region)
         config = s3.download_dict(f"{name}.json", args['s3bucket'])
+        config['clicommand'] = f"aws eks update-kubeconfig --name {name}"
         config['cloudformation_cp'] = f"eksctl-{name}-cluster"
         config['cloudformation_ng'] = f"eksctl-{name}-nodegroup-{name}-ng"
         s3.upload_dict(f"{name}.json", config, args['s3bucket'])
