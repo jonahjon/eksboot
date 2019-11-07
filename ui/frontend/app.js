@@ -225,14 +225,15 @@ function deletecluster(cID) {
     async: true,
     error: function (d) {
       console.info(d);
-      $('#status').html('<div>'+ d + '</div>');
+      $('#status').html('<div>deleting cluster ' + d + ' failed</div>');
     },
     success: function (d) {
       if (d != null) {
         console.info(d);
-        $('#status').html('<div>'+ d + '</div>');
-        $('#clusterdetails').html('');
-        clusters();
+        var buffer = '';
+        buffer += '<div class="Delete Summary">';
+        buffer += '<div class="cdfield"><span class="cdtitle">Deleting Cluster:</span> ' + d.name + '</div>';
+        $('#status').html('');
       }
     }
   });
